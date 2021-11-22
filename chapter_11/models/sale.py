@@ -114,8 +114,8 @@ class SaleOrder(models.Model):
             'target': 'new',
             'context': ctx,
         }
-        _logger.info("add_custom_taco\n\n%r\n\n",self.env.context)
-        _logger.info("add_custom_taco\n\n%r\n\n",action)
+        #_logger.info("add_custom_taco\n\n%r\n\n",self.env.context)
+        #_logger.info("add_custom_taco\n\n%r\n\n",action)
         return action
 
     @api.model
@@ -154,11 +154,11 @@ class SaleOrder(models.Model):
             #_date = _date.replace(year=Y)
             #season = next(season for season, (start, end) in seasons if start <= _date <= end)
             season = self.get_season(self.date_order)
-            _logger.info('\n\n\nSEEEEEEASOOOOOOOOON %s', season)
+            #_logger.info('\n\n\nSEEEEEEASOOOOOOOOON %s', season)
             # REMOVE OUT OF SEASON INGREDIENTS
             ids = [(3,l.id) for l in self.order_line if l.unavailable_in==season]
             if ids:
-                _logger.info('try to delete %r', ids)
+                #_logger.info('try to delete %r', ids)
                 self.order_line = ids
 
 class SaleOrderLine(models.Model):
@@ -207,7 +207,7 @@ class SaleOrderLine(models.Model):
             #action = self.env.ref('chapter_11.action_view_send_to_invoice').read()[0]
             #return action
 
-            _logger.info("TACO\n\n%r\n\n",action)
+            #_logger.info("TACO\n\n%r\n\n",action)
         return action
 
 class SOLineIngredientes(models.Model):

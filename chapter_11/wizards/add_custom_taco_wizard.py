@@ -13,8 +13,8 @@ class CustomTacoWizard(models.TransientModel):
     ingredients_limit = 10
 
     def _default_order_id(self):
-        _logger.info('\n\nCONTEXT:\n%r\n\n', self.env.context)
-        order_id = self.env.context.get('order_id', self.env.context.get('active_ids',[]) )
+        #_logger.info('\n\nCONTEXT:\n%r\n\n', self.env.context)
+        order_id = self.env.context.get('order_id', self.env.context.get('active_id', self.env.context.get('active_ids',[])) )
         order = self.env['sale.order'].browse(order_id)
         return order
 
@@ -63,6 +63,8 @@ class CustomTacoWizard(models.TransientModel):
         if self.taco_id and self.ingredients:
             ingredients = []
             price_unit = 0.0
+            #_logger.info('\n\nCONTEXT:\n%r\n\n', self.env.context)
+            #_logger.info('\n\nDAAATEEEE:\n\n%r %r', self.order_id, self.order_id.date_order)
             season = self.get_season(self.order_id.date_order)
             for i in self.ingredients:
                 if i.unavailable_in!=season:
