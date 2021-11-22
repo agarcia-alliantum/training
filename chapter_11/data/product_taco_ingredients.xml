@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_category_food" model="product.category">
+        <field name="name">Food</field>
+    </record>
+    <record id="product_category_tacos" model="product.category">
+        <field name="parent_id" ref="product_category_food"/>
+        <field name="name">Tacos</field>
+    </record>
+    <record id="product_category_ingredients" model="product.category">
+        <field name="parent_id" ref="product_category_food"/>
+        <field name="name">Ingredients</field>
+    </record>
+
+    <record id="taco_ingredient_1" model="product.product">
+        <field name="name">Jalapeño</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.2</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Green Hot Chili Pepper</field>
+        <field name="default_code">JAL-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/jalapeno.jpg"/>
+    </record>
+    <record id="taco_ingredient_2" model="product.product">
+        <field name="name">Sweet Pepper</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.2</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Sweet Pepper</field>
+        <field name="default_code">SWE-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/sweet-pepper.jpg"/>
+    </record>
+    <record id="taco_ingredient_3" model="product.product">
+        <field name="name">Cheese Cream</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.5</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Sweet Cheese Cream</field>
+        <field name="default_code">CHE-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/cheese-cream.jpg"/>
+    </record>
+    <record id="taco_ingredient_4" model="product.product">
+        <field name="name">Coconut Cream</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.6</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Fresh Creamy Coconut Milk</field>
+        <field name="default_code">COCO-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/coconut-cream.jpg"/>
+    </record>
+    <record id="taco_ingredient_5" model="product.product">
+        <field name="name">Jitomate</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.2</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Organic Red Jitomate</field>
+        <field name="default_code">TOM-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/jitomate.jpg"/>
+    </record>
+    <record id="taco_ingredient_6" model="product.product">
+        <field name="name">Coriander</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.1</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Fresh Coriander</field>
+        <field name="default_code">H-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/coriander.jpg"/>
+    </record>
+    <record id="taco_ingredient_7" model="product.product">
+        <field name="name">Beef</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.8</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Organic Minced Beef</field>
+        <field name="default_code">BEEF-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/minced-beef.jpg"/>
+    </record>
+    <record id="taco_ingredient_8" model="product.product">
+        <field name="name">Prawn</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.9</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Roasted Prawns</field>
+        <field name="default_code">PRA-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/prawn.jpg"/>
+    </record>
+    <record id="taco_ingredient_9" model="product.product">
+        <field name="name">Scrambled Eggs</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.4</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Organic Local Eggs</field>
+        <field name="default_code">SE-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/scrambled-egg.jpg"/>
+    </record>
+    <record id="taco_ingredient_10" model="product.product">
+        <field name="name">Pico de Gallo</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.4</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Tomato, peppers mix with vinegar, oils, herbs, salt.</field>
+        <field name="default_code">PG-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/pico-de-gallo.jpg"/>
+    </record>
+    <record id="taco_ingredient_11" model="product.product">
+        <field name="name">Patacon</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.4</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description"></field>
+        <field name="default_code">PAT-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/patacon.jpg"/>
+    </record>
+    <record id="taco_ingredient_12" model="product.product">
+        <field name="name">Onion-garlic</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.2</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Base mix of fresh onion and garlic</field>
+        <field name="default_code">OG</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/onion-garlic.jpg"/>
+    </record>
+    <record id="taco_ingredient_13" model="product.product">
+        <field name="name">Cheese Cubes</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.6</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Cheese Cubes</field>
+        <field name="default_code">CHE-2</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/cheese-cubes.jpg"/>
+    </record>
+    <record id="taco_ingredient_14" model="product.product">
+        <field name="name">Frijoles</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.3</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Steamed Brown Beans</field>
+        <field name="default_code">B-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/frijoles.jpg"/>
+    </record>
+    <record id="taco_ingredient_15" model="product.product">
+        <field name="name">Chili Paste</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.3</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description">Red Chili Paste</field>
+        <field name="default_code">CP-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/red-chili-paste.jpg"/>
+    </record>
+    <record id="taco_ingredient_16" model="product.product">
+        <field name="name">Green Chili Paste</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.3</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description"></field>
+        <field name="default_code">CP-2</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/green-chili-paste.jpg"/>
+    </record>
+    <record id="taco_ingredient_17" model="product.product">
+        <field name="name">Avocado</field>
+        <field name="categ_id" ref="product_category_ingredients"/>
+        <field name="standard_price">0.1</field>
+        <field name="list_price">0.5</field>
+        <field name="type">consu</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="description"></field>
+        <field name="default_code">AV-1</field>
+        <field name="image_1920" type="base64" file="chapter_11/static/img/avocado.jpg"/>
+    </record>
+
+</odoo>

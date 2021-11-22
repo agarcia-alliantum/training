@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="taco_ingredients" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//tbody[hasclass('sale_tbody')]//t[@t-foreach='doc.order_line']//span[@t-field='line.name']" position="after">
+            <t t-if="line.ingredients">
+                <div class="border p-1">
+                    <h6>Ingredients:</h6>
+                    <small t-esc="', '.join(sorted([i.description for i in line.ingredients]))"/>
+                </div>
+            </t>
+        </xpath>
+        <!--xpath expr="//tbody[hasclass('sale_tbody')]//t[@t-foreach='doc.order_line']" position="inside">
+            <t t-if="line.ingredients">
+                <tr>
+                    <td colspan="100%">
+                        <t t-foreach="line.ingredients" t-as="ingredient">
+                            <div t-esc="ingredient.name"/>
+                        </t>
+                    </td>
+                </tr>
+            </t>
+        </xpath-->
+    </template>
+</odoo>

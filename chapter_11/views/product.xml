@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- TREEE -->
+        <record id="unavailable_in_product_tree_view" model="ir.ui.view">
+            <field name="name">Unavailable in</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="model">product.product</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="unavailable_in" />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="unavailable_in_product_form_view" model="ir.ui.view">
+            <field name="name">Unavailable in</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <group>
+                        <field name="unavailable_in" />
+                        <field name="taco_color" widget='color_picker'/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

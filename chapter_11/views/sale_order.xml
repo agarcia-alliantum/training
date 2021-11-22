@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- TACO TEMPLATE -->
+    <record id="is_taco_for_template" model="ir.ui.view">
+      <field name="name">Is Taco for template</field>
+      <field name="inherit_id" ref="sale_management.sale_order_template_view_form"/>
+      <field name="model">sale.order.template</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+          <xpath expr="//form//field[@name='company_id']" position="after">
+            <field name="is_taco" />
+            <field name="available_categ_id" invisible="0"/>
+          </xpath>
+          <xpath expr="//page[@name='order_lines']//tree//field[@name='product_id']" position="attributes">
+            <attribute name="domain">[('sale_ok', '=', True), ('categ_id', '=', parent.available_categ_id)] if parent.available_categ_id else [('sale_ok', '=', True)]</attribute>
+          </xpath>
+          <!--xpath expr="//page[@name='order_lines']//tree//field[@name='product_id']" position="after">
+            <field name="unavailable_in" />
+          </xpath-->
+      </field>
+    </record>
+
+    <!-- TACO TEMPLATE LIST -->
+    <record id="is_taco_for_template_tree" model="ir.ui.view">
+      <field name="name">Is Taco for template</field>
+      <field name="inherit_id" ref="sale_management.sale_order_template_view_tree"/>
+      <field name="model">sale.order.template</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='name']" position="after">
+          <field name="is_taco" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- TACO TEMPLATE SEARCH -->
+    <record id="taco_template_view_search" model="ir.ui.view">
+      <field name="name">Taco template search</field>
+      <field name="inherit_id" ref="sale_management.sale_order_template_view_search"/>
+      <field name="model">sale.order.template</field>
+      <field name="arch" type="xml">
+          <xpath expr="//search/filter[@name='inactive']" position="after">
+            <filter string="Taco" name="is_taco" domain="[('is_taco','=', True)]"/>
+          </xpath>
+      </field>
+    </record>
+
+    <!-- QUOTATION LIST -->
+    <record id="is_taco_for_quotation_tree" model="ir.ui.view">
+      <field name="name">Is Taco</field>
+      <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+      <field name="model">sale.order</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='create_date']" position="after">
+          <field name="is_taco" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- ORDER LIST -->
+    <record id="is_taco_for_order_tree" model="ir.ui.view">
+      <field name="name">Is Taco</field>
+      <field name="inherit_id" ref="sale.view_order_tree"/>
+      <field name="model">sale.order</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='date_order']" position="after">
+          <field name="is_taco" />
+        </xpath>
+      </field>
+    </record>
+
+    <!-- QUOTATION LIST SEARCH -->
+    <record id="quotation_list_view_search" model="ir.ui.view">
+      <field name="name">Quotation list search</field>
+      <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+      <field name="model">sale.order</field>
+      <field name="arch" type="xml">
+          <xpath expr="//search" position="inside">
+            <filter string="Taco" name="is_taco" domain="[('is_taco','=', True)]"/>
+          </xpath>
+      </field>
+    </record>
+
+    <!-- SALE ORDER FORM -->
+    <record model="ir.ui.view" id="custom_taco_lines">
+      <field name="name">Add custom taco</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <xpath expr="//form//field[@name='partner_id']" position="after">
+          <field name="is_taco" />
+        </xpath>
+        <xpath expr="//form//field[@name='sale_order_template_id']" position="attributes">
+          <attribute name="domain">[('is_taco','=',is_taco)]</attribute>
+          <attribute name="options">{'create':True, 'no_create_edit': False, 'no_open': False, 'no_quick_create': False}</attribute>
+        </xpath>
+        <xpath expr="//form//header//button[@name='action_draft']" position="after">
+          <button name="add_custom_taco" type="object" string="Add custom Taco" states="new,draft" icon="fa-puzzle-piece"/>
+       </xpath>
+       <!-- modificar el nombre del widget section_and_note_one2many por el widget nuevo
+        section_and_note_and_taco_one2many -->
+        <field name="order_line" position="attributes">
+          <attribute name="widget">taco_and_section_and_note_one2many</attribute>
+        </field>
+        <xpath expr="//control" position="inside">
+          <create string="Add custom taco" context="{'default_display_type':'open_taco_configurator'}" />
+        </xpath>
+        <xpath expr="//page[@name='order_lines']//tree" position="inside">
+          <field name="is_ingredient" invisible="1"/>
+          <field name="ingredients" readonly="1" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        </xpath>
+        <xpath expr="//page[@name='order_lines']//tree" position="attributes">
+          <attribute name="decoration-info">is_ingredient</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

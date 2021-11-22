@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_so_add_custom" model="res.groups">
+        <field name="name">Show add custom taco in SO actions</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

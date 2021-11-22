@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_taco_wizard,Taco Wizard,model_custom_taco_wizard,,1,1,1,1
+access_custom_taco_line_wizard,Taco Line Wizard,model_custom_taco_line_wizard,,1,1,1,1
+access_sol_ingredients,SO Line Ingredients,model_sol_ingredients,,1,1,1,1

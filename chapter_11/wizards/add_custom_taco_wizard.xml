@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Add custon Taco Wizard Form View -->
+        <record id="add_custom_taco_wizard_view" model="ir.ui.view">
+            <field name="name">Add custom Taco</field>
+            <field name="model">custom.taco.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add custom Taco">
+                    <!--field name="id" invisible="0"/-->
+                    <!--field name="order_id" invisible="0"/-->
+                    <!--field name="date_order" invisible="0"/-->
+                    <div class="w-100 o-row">
+                        <div class="text-center">
+                            <h2>Select Taco ingredients</h2>
+                        </div>
+                        <group>
+                            <field name="taco_id"/>
+                        </group>
+                        <group>
+                            <field name="ingredients"/>
+                        </group>
+
+                        <!--
+                            <form>
+                                <group>
+                                    <field name="product_id" string="Ingredient"/>
+                                    <field name="product_uom_qty" />
+                                    <field name="product_uom" />
+                                    <field name="price_unit" />
+                                    <field name="price_subtotal" />
+                                </group>
+
+                            </form>
+                            <tree>
+                                <field name="product_id" />
+                                <field name="product_uom_category_id" />
+                                <field name="product_uom_qty" />
+                                <field name="product_uom" />
+                                <field name="price_unit" />
+                                <field name="price_subtotal" />
+                            </tree>
+                        </field-->
+
+                        <!--field name="sale_order_template_id"/-->
+                    </div>
+                    <footer>
+                        <button class="btn-primary" name="send_to_order" string="Add ingredients Taco" type="object"
+                            attrs="{'invisible': [('ingredients', '=',[])]}" />
+                        <!--button class="btn-primary" name="send_to_order" string="Add ingredients Taco" type="object"/-->
+                        <!--button string="Add" class="btn-primary o_sale_product_configurator_add" special="add"/-->
+                        <!--button string="Save" class="btn-primary o_sale_product_configurator_edit" special="save"/-->
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ASIDE ACTION FOR OPEN WIZARD -->
+        <record id="action_view_send_to_invoice" model="ir.actions.act_window">
+            <field name="name">Add custom Taco</field>
+            <field name="res_model">custom.taco.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="chapter_11.add_custom_taco_wizard_view"/>
+        </record>
+    </data>
+</odoo>
