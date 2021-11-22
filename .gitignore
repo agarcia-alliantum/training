@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+*.mo
+*.pot
+__pypackages__/
+prt_report_attachment_preview/
