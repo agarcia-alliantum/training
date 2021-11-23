@@ -6,7 +6,7 @@
 
 ## Configuring ingredients
 
-In the beginning Good created the ingredients
+In the beginning God created the ingredients
 
 1. Go to Inventory
 2. Select Products
