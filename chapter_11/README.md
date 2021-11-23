@@ -4,6 +4,29 @@
 
 **Explanation** These are the steps to follow to configure a Taco.
 
+## Configuring ingredients
+
+In the beginning Good created the ingredients
+
+1. Go to Inventory
+2. Select Products
+3. Click on Product Variants (product.product)
+
+<p align="center">
+    <img width="50%" src="static/description/step-prd-01.png" alt="Step 1" />
+</p>
+
+Select or create a product then...
+
+1. Select the seasonal availability
+2. Choose the color
+3. Remember to select the Product Category: Food / Ingredients
+
+<p align="center">
+    <img width="50%" src="static/description/step-prd-02.png" alt="Step 1" />
+</p>
+
+
 ## Step 01
 
 1. Open the Sales options and go to Configuration > Settings
